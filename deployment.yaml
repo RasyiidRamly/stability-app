@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stability-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: stability-app
+  template:
+    metadata:
+      labels:
+        app: stability-app
+    spec:
+      containers:
+      - name: app
+        image: zurgigas/stability-app:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
