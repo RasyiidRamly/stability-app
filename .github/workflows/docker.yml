@@ -20,3 +20,8 @@ jobs:
 
       - name: Push image
         run: docker push zurgigas/stability-app:latest
+
+      - name: Deploy to Kubernetes
+        run: |
+          kubectl set image deployment/stability-app app=zurgigas/stability-app:latest
+          kubectl rollout status deployment/stability-app
