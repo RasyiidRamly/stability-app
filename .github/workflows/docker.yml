@@ -21,7 +21,11 @@ jobs:
       - name: Push image
         run: docker push zurgigas/stability-app:latest
 
-      - name: Deploy to Kubernetes
-        run: |
-          kubectl set image deployment/stability-app app=zurgigas/stability-app:latest
-          kubectl rollout status deployment/stability-app
+      - name: Deploy to Kubernetes (disabled - local cluster not reachable )
+        run: 
+            # kubectl set image deployment/stability-app app=zurgigas/stability-app:latest
+             # kubectl rollout status deployment/stability-app
+         echo "Skipping deployment:"
+         echo "Cluster is local (Docker Desktop) and not accessible from GitHub Actions"
+         echo "Will enable after moving cluster to VPS/cloud
+ 
